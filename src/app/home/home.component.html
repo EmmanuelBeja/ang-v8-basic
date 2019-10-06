@@ -1,0 +1,44 @@
+<h1>Heey! Some Basic Angular 8 Concepts below</h1>
+<div class="play-container">
+    <!-- One way data binding -->
+    <p>
+      <span (click)="click('add')">Add</span><span (click)="click('subtract')">Subtract</span>
+    </p>
+    <!-- Two way data binding -->
+    <p>
+        <input type="number" [(ngModel)]="clickCounter"><br>
+        <strong>Counter : </strong> {{ clickCounter }}
+    </p>
+</div>
+
+<div class="play-container">
+    <!-- ng-template: working with if else within template -->
+    <ng-template [ngIf]="clickCounter > 2" [ngIfElse]="none">
+        <p><strong>GREATER</strong> than 2.</p>
+    </ng-template>
+    <ng-template #none>
+        <p><strong>Less</strong> than 2.</p>
+    </ng-template>
+</div>
+
+<!-- class binding -->
+<div class="play-container" [class.active]="clickCounter > 2">
+  class binding
+</div>
+<!-- class binding multiple classes-->
+<div class="play-container" [ngClass]="setClasses()">
+  class binding multiple classes
+</div>
+
+<!-- Style Binding -->
+<div class="play-container" [style.background-color]="clickCounter > 2 ? 'teal' : 'whitesmoke'">
+  Style Binding
+</div>
+<!-- Style Binding with multiple css properties -->
+<div class="play-container" [ngStyle]="{
+      'background-color': clickCounter > 2 ? 'teal' : 'whitesmoke',
+      'color':            clickCounter > 2 ? 'white' : 'black',
+      'border':           clickCounter > 2 ? '2px solid black' : 'none'}
+      ">
+  Style Binding with multiple css properties
+</div>
